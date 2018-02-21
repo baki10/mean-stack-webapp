@@ -1,10 +1,10 @@
-var express = require('express');
-var app = express();
-var port = process.env.PORT || 8080;
-var morgan = require('morgan');
-var mongoose = require('mongoose');
+var express = require('express');         // Node.js web application framework
+var morgan = require('morgan');           // HTTP request logger middleware for node.js
+var mongoose = require('mongoose');       // elegant mongodb object modeling for node.js
+var bodyParser = require('body-parser');  // Node.js body parsing middleware
 var User = require('./app/models/user');
-var bodyParser = require('body-parser');
+
+var app = express();
 
 // for parsing application/json
 app.use(bodyParser.json());
@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true
 }));
-// console logging requests
+// console logging HTTP requests
 app.use(morgan('dev'));
 
 mongoose.connect('mongodb://localhost:27017/mean-tutorial', function(err) {
@@ -47,6 +47,7 @@ app.post("/users", function(req, res) {
   }
 });
 
+var port = process.env.PORT || 8080;
 app.listen(port, function() {
   console.log("Running the server on port:", port);
 });
