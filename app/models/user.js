@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var bcrypt = require('bcrypt-nodejs');
+var bcrypt = require('bcrypt-nodejs');  // Lib to help you hash passwords
 
 var Schema = mongoose.Schema;
 
