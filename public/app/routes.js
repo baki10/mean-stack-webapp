@@ -18,6 +18,10 @@ angular.module("appRoutes", ['ui.router'])
         templateUrl: 'app/views/pages/users/register.html',
         controller: 'regCtrl',
         controllerAs: 'register'
+      })
+      .state('login', {
+        url: '/login',
+        templateUrl: 'app/views/pages/users/login.html'
       });
 
   });
