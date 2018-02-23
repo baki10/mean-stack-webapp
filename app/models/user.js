@@ -17,7 +17,6 @@ var UserSchema = new Schema({
   email: {
     type: String,
     required: true,
-    required: true,
     unique: true
   }
 });
@@ -31,7 +30,10 @@ UserSchema.pre('save', function(next) {
     user.password = hash;
     next();
   });
-
 });
+
+UserSchema.methods.comparePasswords = function (password) {
+  return bcrypt.compareSync(password, this.password);
+};
 
 module.exports = mongoose.model("User", UserSchema);
