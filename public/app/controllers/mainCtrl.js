@@ -4,16 +4,20 @@ angular.module('mainController', ['authServices'])
     var main = this;
     main.loginData = {};
 
+
+    main.loadme = false;
     $transitions.onSuccess({to: '*'}, function () {
       if (Auth.isLoggedIn()) {
-        console.log("Logged in");
+        main.isLoggedIn = true;
         Auth.getUser().then(function (data) {
           main.username = data.data.username;
           main.useremail = data.data.email;
+          main.loadme = true;
         });
       } else {
-        console.log("Not logged in");
+        main.isLoggedIn = false;
         main.username = false;
+        main.loadme = true;
       }
     });
 
