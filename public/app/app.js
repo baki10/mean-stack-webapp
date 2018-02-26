@@ -5,4 +5,8 @@ angular.module("userApp", [
   'ngAnimate',
   'mainController',
   'authServices'
-]);
+])
+
+.config(function ($httpProvider) {
+  $httpProvider.interceptors.push('AuthInterceptors');
+});

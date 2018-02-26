@@ -22,6 +22,14 @@ angular.module("appRoutes", ['ui.router'])
       .state('login', {
         url: '/login',
         templateUrl: 'app/views/pages/users/login.html'
+      })
+      .state('logout',{
+        url: '/logout',
+        templateUrl: 'app/views/pages/users/logout.html'
+      })
+      .state('profile',{
+        url: '/profile',
+        templateUrl: 'app/views/pages/users/profile.html'
       });
 
   });
